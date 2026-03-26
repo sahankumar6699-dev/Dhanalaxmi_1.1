@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanalaxmi Constructions | Luxury Living in Mangalore</title>
+    <meta name="description" content="Dhanalaxmi Constructions - Premier construction services in Mangalore. Crafting luxury homes and commercial spaces with precision and elegance.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #1a1a1a;
+            --accent-color: #c5a059;
+            --secondary-bg: #121212;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* --- Resets --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        /* Active nav state for scrolling */
+        nav.active {
+            background: rgba(0,0,0,0.9);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            z-index: 101;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: #fff;
+            margin-left: 3rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #fff;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            margin: 2px 0;
+            transition: var(--transition);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            min-height: 700px; /* Prevents squishing on small height screens */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: var(--secondary-bg);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            transform: scale(1.1);
+            transition: transform 10s linear;
+        }
+
+        .hero:hover .hero-bg { transform: scale(1); }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            padding: 2rem;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 6rem); /* Fluid typography */
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .hero-title span {
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: transparent;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .btn-main:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: 8rem 5%;
+        }
+
+        .section-dark {
+            background-color: var(--secondary-bg);
+            color: #fff;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background-color: var(--accent-color);
+            margin: 1.5rem auto 0;
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-img-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .signature {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--accent-color);
+            transform: translateY(-10px);
+        }
+
+        .service-icon { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1.5rem; }
+        .service-title { font-size: 1.8rem; margin-bottom: 1rem; }
+        .service-text { font-size: 0.9rem; opacity: 0.7; }
+
+        /* --- Contact --- */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .contact-info-box {
+            margin-top: 4rem;
+            background: rgba(0,0,0,0.8);
+            padding: 3rem;
+            border: 1px solid #333;
+        }
+
+        .contact-name {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .contact-details p {
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-details a { color: #fff; transition: var(--transition); }
+        .contact-details a:hover { color: var(--accent-color); }
+
+        .social-links {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allows buttons to stack on very small screens */
+            gap: 1rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            border: 1px solid var(--accent-color);
+            color: #fff;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        /* --- Floating WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 5%;
+            background: #000;
+            color: rgba(255,255,255,0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+
+        /* Tablets and below */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-img-container {
+                order: -1; /* Image first on mobile/tablet usually looks better */
+            }
+        }
+
+        /* Mobile Phones */
+        @media (max-width: 768px) {
+            /* Navigation Mobile Logic */
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #000;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                margin: 1.5rem 0;
+                font-size: 1.5rem;
+            }
+
+            /* Hero adjustments */
+            .hero {
+                min-height: 600px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+
+            /* Section padding */
+            .section {
+                padding: 5rem 5%;
+            }
+
+            /* Footer */
+            footer {
+                flex-direction: column;
+            }
+
+            /* Contact box padding */
+            .contact-info-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">Dhanalaxmi</div>
+        
+        <div class="nav-links" id="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Based in Mangalore</p>
+            <h1 class="hero-title">Designing the <span>Future</span><br>of Living.</h1>
+            <a href="#contact" class="btn-main">Enquire Now</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="about-grid">
+            <div class="about-img-container">
+                <!-- Using a high quality image that scales well -->
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxury Interior" class="about-img">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Est. in Mangalore</h2>
+                <p>At Dhanalaxmi Constructions, we believe construction is not just about bricks and mortar; it is an art form. We blend structural integrity with aesthetic beauty, creating spaces that breathe luxury and comfort.</p>
+                <p>With years of experience in the region, we understand the local landscape intimately, allowing us to deliver projects that stand the test of time.</p>
+                <div class="signature">Harish Kulal</div>
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #999;">Founder & Principal Contractor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section section-dark">
+        <h2 class="section-title">Our Expertise</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-home"></i></div>
+                <h3 class="service-title">Luxury Residences</h3>
+                <p class="service-text">Crafting bespoke homes tailored to the unique visions of our clients. From modern villas to traditional estates.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-city"></i></div>
+                <h3 class="service-title">Commercial Spaces</h3>
+                <p class="service-text">Building sophisticated commercial complexes that merge functionality with striking architectural design.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <h3 class="service-title">Renovation & Interiors</h3>
+                <p class="service-text">Breathing new life into existing spaces. We specialize in high-end renovations and interior fit-outs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-container">
+            <p>Ready to build your dream home? We are available for consultations. Reach out to us directly.</p>
+            
+            <div class="contact-info-box">
+                <h3 class="contact-name">Harish Kulal</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> <a href="tel:9740732622">+91 97407 32622</a></p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> <a href="mailto:DhanalakshmiConstructionskarkala@gmail.com">DhanalakshmiConstructionskarkala@gmail.com</a></p>
+                </div>
+
+                <div class="social-links">
+                    <!-- UPDATED INSTAGRAM LINK -->
+                    <a href="https://www.instagram.com/dhanalaxmi_constructions_?igsh=bDIzOHpkcWxuM2ts" target="_blank" class="social-btn">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+
+                    <!-- WhatsApp Direct Message Link -->
+                    <a href="https://wa.me/919740732622?text=Hello%20Dhanalaxmi%20Constructions,%20I%20am%20interested%20in%20your%20services." target="_blank" class="social-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919740732622?text=Hello%20Dhanalaxmi%20Constructions,%20I%20am%20interested%20in%20your%20services." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Dhanalaxmi Constructions. All Rights Reserved.</p>
+        <p>Mangalore, Karnataka, India</p>
+    </footer>
+
+    <!-- Script for Mobile Menu and Scroll Effects -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const navbar = document.getElementById('navbar');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('active');
+            } else {
+                navbar.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+  </html>
